@@ -17,7 +17,7 @@ class UI:
         pass
 
     def render(self, currentExpression):
-        os.system("clear")
+        print("\033[2J\033[H", end="", flush=True)
 
         self.renderInstructions()
         self.renderExpression()
