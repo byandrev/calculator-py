@@ -8,7 +8,7 @@ class UI:
         self.header = "Calculator\n"
         self.history = "History"
         self.expression = ""
-        self.instructions = "\nOperations:\n  Enter: <return>\n  add: +\n  subtract: -\n  divide: /\n  multiply: *"
+        self.instructions = "\n  Operations:\n\n  add: +\n  subtract: -\n  divide: /\n  multiply: * \n\n  EXIT: q   CLEAR: c  CALCULATE: enter"
         pass
 
     def renderInstructions(self):
