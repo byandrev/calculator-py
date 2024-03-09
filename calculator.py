@@ -3,5 +3,9 @@ class Calculator:
         pass
 
     def runOperation(self, expression):
-        return "Resultado"
+        try: 
+            resultado = eval(expression)
+            return str(resultado)
+        except Exception as e:
+            return f"Error al evaluar la expresion: {e}"
 
