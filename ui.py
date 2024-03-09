@@ -24,7 +24,7 @@ class UI:
     def renderHistory(self):
         pass
 
-    def render(self, currentExpression):
+    def render(self, currentExpression, history):
         os.system('cls' if os.name == 'nt' else 'clear')
 
         self.renderInstructions()
@@ -38,7 +38,7 @@ class UI:
         )
 
         history = Group(
-            lastExpression
+            history
         )
         
         table = Table(
