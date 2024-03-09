@@ -5,9 +5,9 @@ from rich.panel import Panel
 
 class UI:
     def __init__(self):
-        self.header = Panel("Calculator")
+        self.header = "Calculator\n"
         self.expression = ""
-        self.instructions = "\nSum: +\nDiv: /"
+        self.instructions = "\n  Operations:\n\n  add: +\n  subtract: -\n  divide: /\n  multiply: * \n\n  EXIT: q   CLEAR: c  CALCULATE: enter"
         pass
 
     def renderInstructions(self):
@@ -24,7 +24,7 @@ class UI:
 
         panel_group = Group(
             self.header,
-            currentExpression,
+            Panel(currentExpression),
             self.instructions
         )
 
