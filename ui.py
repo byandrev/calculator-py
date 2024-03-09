@@ -6,6 +6,7 @@ from rich.panel import Panel
 class UI:
     def __init__(self):
         self.header = "Calculator\n"
+        self.history = "History"
         self.expression = ""
         self.instructions = "\nOperations:\n  Enter: <return>\n  add: +\n  subtract: -\n  divide: /\n  multiply: *"
         pass
@@ -13,6 +14,9 @@ class UI:
     def renderInstructions(self):
         pass
 
+    def renderHistory(self):
+        pass
+    
     def renderExpression(self):
         pass
 
@@ -20,6 +24,7 @@ class UI:
         print("\033c", end="", flush=True)
 
         self.renderInstructions()
+        self.renderHistory()
         self.renderExpression()
 
         panel_group = Group(
@@ -27,6 +32,7 @@ class UI:
             Panel(currentExpression),
             self.instructions
         )
+        
+        
 
         print(Panel(panel_group))
-
