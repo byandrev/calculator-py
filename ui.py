@@ -24,8 +24,8 @@ class UI:
     def renderHistory(self):
         pass
 
-    def render(self, currentExpression, lastExpression):
-        print("\033c", end="", flush=True)
+    def render(self, currentExpression):
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         self.renderInstructions()
         self.renderHistory()

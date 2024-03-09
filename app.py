@@ -1,3 +1,4 @@
+import os
 from ui import UI
 from calculator import Calculator
 import readchar
