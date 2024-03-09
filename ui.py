@@ -2,31 +2,50 @@ import os
 from rich import print
 from rich.console import Group
 from rich.panel import Panel
+from rich.table import Column, Table
 
 class UI:
     def __init__(self):
-        self.header = "Calculator\n"
+        self.header = "Calculator"
         self.expression = ""
-        self.instructions = "\n  Operations:\n\n  add: +\n  subtract: -\n  divide: /\n  multiply: * \n\n  EXIT: q   CLEAR: c  CALCULATE: enter"
+        self.instructions = "\n  Operations:\n\n  add: +\n  subtract: -\n  divide: /\n  multiply: * \n\n  EXIT: q   CLEAR: c    CLEAR HISTORY: h    CALCULATE: enter    "
+        self.history = ""
         pass
 
     def renderInstructions(self):
         pass
 
+    def renderHistory(self):
+        pass
+    
     def renderExpression(self):
         pass
+    
+    def renderHistory(self):
+        pass
 
-    def render(self, currentExpression):
+    def render(self, currentExpression, history):
         os.system('cls' if os.name == 'nt' else 'clear')
 
         self.renderInstructions()
+        self.renderHistory()
         self.renderExpression()
+        self.renderHistory()
 
         panel_group = Group(
-            self.header,
             Panel(currentExpression),
             self.instructions
         )
 
-        print(Panel(panel_group))
-
+        history = Group(
+            history
+        )
+        
+        table = Table(
+        self.header,
+        "History",
+        )
+        
+        table.add_row(panel_group, history)
+            
+        print(table)
