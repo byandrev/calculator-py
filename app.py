@@ -1,3 +1,4 @@
+import os
 from ui import UI
 from calculator import Calculator
 import readchar
@@ -31,6 +32,6 @@ class App:
             if key == "c":
                 self.currentExpression = ""
                 self.ui.render(self.currentExpression)
-            
+                
             if key == "q":
                 break

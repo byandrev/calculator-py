@@ -25,7 +25,7 @@ class UI:
         pass
 
     def render(self, currentExpression):
-        print("\033c", end="", flush=True)
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         self.renderInstructions()
         self.renderHistory()
