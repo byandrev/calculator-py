@@ -7,6 +7,7 @@ class App:
 
     def __init__(self):
         self.currentExpression = ""
+        self.lastExpression = ""
         self.ui = UI()
         self.calculator = Calculator()
 
@@ -19,11 +20,17 @@ class App:
             if key == readchar.key.BACKSPACE:
                 self.currentExpression = self.currentExpression[:-1]
             elif key == readchar.key.ENTER:
+                self.lastExpression = self.currentExpression
                 self.currentExpression = self.calculator.runOperation(self.currentExpression)
+                self.ui.saveHistory(self.lastExpression, self.currentExpression)
             elif key in self.allow_letters:
                 self.currentExpression = self.currentExpression + key
             
             self.ui.render(self.currentExpression)
 
+            if key == "c":
+                self.currentExpression = ""
+                self.ui.render(self.currentExpression)
+            
             if key == "q":
                 break
