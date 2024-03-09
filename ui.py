@@ -8,7 +8,7 @@ class UI:
     def __init__(self):
         self.header = "Calculator"
         self.expression = ""
-        self.instructions = "\n  Operations:\n\n  add: +\n  subtract: -\n  divide: /\n  multiply: * \n\n  EXIT: q   CLEAR: c  CALCULATE: enter"
+        self.instructions = "\n  Operations:\n\n  add: +\n  subtract: -\n  divide: /\n  multiply: * \n\n  EXIT: q   CLEAR: c    CLEAR HISTORY: h    CALCULATE: enter    "
         self.history = ""
         pass
 
@@ -24,7 +24,7 @@ class UI:
     def renderHistory(self):
         pass
 
-    def render(self, currentExpression):
+    def render(self, currentExpression, lastExpression):
         print("\033c", end="", flush=True)
 
         self.renderInstructions()
@@ -36,11 +36,9 @@ class UI:
             Panel(currentExpression),
             self.instructions
         )
-        
-        
 
         history = Group(
-            self.history
+            lastExpression
         )
         
         table = Table(
@@ -51,6 +49,3 @@ class UI:
         table.add_row(panel_group, history)
             
         print(table)
-        
-    def saveHistory(self, lastExpression, currentExpression):
-        self.history = self.history + "\n" + lastExpression + " result: " + currentExpression
